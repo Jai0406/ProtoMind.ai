@@ -91,7 +91,6 @@ body {
     background-position: center;
     opacity: 0.12; 
     mix-blend-mode: screen; 
-    /* Watermark pe bhi mask lagaya taaki background me bhi square box na dikhe */
     -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 75%);
     mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 75%);
     pointer-events: none;
@@ -133,6 +132,7 @@ body {
 }
 .view-more-btn:hover { background: rgba(14, 165, 233, 0.1); border-color: #0ea5e9; box-shadow: 0 0 15px rgba(14,165,233,0.3); }
 
+/* Stack-style Domain Option Buttons in Chat */
 .domain-option-btn-chat {
     background-color: #0f172a; color: #cbd5e1; border: 1px solid #1e293b; padding: 14px 20px; border-radius: 10px; 
     text-align: left; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s; width: 100%;
@@ -145,23 +145,6 @@ body {
     align-items: center; padding: 10px 15px; border: 1px solid #1e293b; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s;
 }
 .input-bar:focus-within { border-color: #0ea5e9; box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2), 0 10px 30px rgba(0,0,0,0.5); }
-
-/* SELECT BOX & DIVIDER FIX */
-.engine-select { 
-    background-color: transparent; 
-    color: #94a3b8; 
-    border: none; 
-    padding: 8px 15px 8px 8px; 
-    margin-right: 15px; 
-    font-size: 13px; 
-    font-weight: 500; 
-    outline: none; 
-    cursor: pointer; 
-    transition: 0.2s; 
-    border-right: 1px solid #334155; 
-}
-.engine-select:hover { color: #f8fafc; }
-.engine-select option { background-color: #0f172a; color: #f8fafc; }
 
 .input-bar input { flex-grow: 1; background: transparent; border: none; color: #fff; padding: 12px; font-size: 15px; outline: none; }
 
@@ -225,6 +208,23 @@ body {
 .read-btn { color: #0ea5e9; text-decoration: none; font-size: 14px; font-weight: 600; transition: 0.2s; cursor: pointer; background: transparent; border: none;}
 .read-btn:hover { color: #38bdf8; text-decoration: underline; text-shadow: 0 0 8px rgba(56,189,248,0.5);}
 
+/* --- LOAD MORE BUTTON FIX --- */
+.load-more-btn {
+    background-color: transparent !important; 
+    color: #0ea5e9 !important; 
+    border: 1px solid rgba(14, 165, 233, 0.5) !important; 
+    border-radius: 24px !important;
+    padding: 12px 35px !important; 
+    font-size: 14px !important; 
+    font-weight: 600 !important; 
+    cursor: pointer !important; 
+    margin: 40px auto 30px auto !important; 
+    display: block !important; 
+    width: max-content !important; 
+    transition: 0.3s !important;
+}
+.load-more-btn:hover { background-color: rgba(14, 165, 233, 0.1) !important; border-color: #0ea5e9 !important; box-shadow: 0 0 15px rgba(14,165,233,0.3) !important; }
+
 /* --- ARXIV SPECIFIC --- */
 .arxiv-search-input { flex-grow: 1; background: #0f172a; border: 1px solid #1e293b; border-radius: 24px; padding: 12px 20px; color: #fff; font-size: 14px; outline: none; transition: 0.2s; }
 .arxiv-search-input:focus { border-color: #0ea5e9; box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2); }
@@ -247,47 +247,30 @@ body {
 .spinner { width: 50px; height: 50px; border: 3px solid rgba(14, 165, 233, 0.1); border-top-color: #0ea5e9; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 25px; box-shadow: 0 0 20px rgba(14, 165, 233, 0.3); }
 .loading-text { font-family: 'Space Grotesk', sans-serif; font-size: 16px; color: #94a3b8; font-weight: 500; letter-spacing: 1px; animation: pulse 1.5s infinite; }
 
-/* --- APP BOOT LOADER (PRO MASK HACK TO HIDE SQUARE EDGES) --- */
+/* --- APP BOOT LOADER --- */
 .app-boot-overlay {
     position: fixed; inset: 0; 
-    background: #000000; /* Pure black hides the mix-blend artifacts perfectly */
+    background: #000000; 
     z-index: 9999;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease;
 }
-
 .boot-logo-img {
     width: 320px; 
     height: 320px; 
     object-fit: contain; 
     margin-bottom: 40px;
     mix-blend-mode: screen;
-    /* CSS MAGIC: Fades out the square edges of the image */
     -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 75%);
     mask-image: radial-gradient(circle, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 75%);
     animation: neon-breathe 2.5s infinite alternate ease-in-out;
 }
-
-.boot-status-text {
-    font-size: 11px; font-family: monospace; color: #64748b; letter-spacing: 1.5px;
-    text-transform: uppercase; animation: pulse 1.2s infinite;
-}
-
-.boot-progress-bar {
-    width: 160px; height: 3px; background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px; overflow: hidden; margin-top: 20px;
-}
-.boot-progress-fill {
-    width: 0%; height: 100%; background: linear-gradient(90deg, #0ea5e9, #8b5cf6);
-    border-radius: 4px; 
-    animation: fillProgress 7s ease forwards;
-}
+.boot-status-text { font-size: 11px; font-family: monospace; color: #64748b; letter-spacing: 1.5px; text-transform: uppercase; animation: pulse 1.2s infinite; }
+.boot-progress-bar { width: 160px; height: 3px; background: rgba(255, 255, 255, 0.05); border-radius: 4px; overflow: hidden; margin-top: 20px; }
+.boot-progress-fill { width: 0%; height: 100%; background: linear-gradient(90deg, #0ea5e9, #8b5cf6); border-radius: 4px; animation: fillProgress 7s ease forwards; }
 
 /* Animations */
-@keyframes neon-breathe {
-    0% { transform: scale(0.96); opacity: 0.6; filter: drop-shadow(0 0 0px rgba(14,165,233,0)); }
-    100% { transform: scale(1.04); opacity: 1; filter: drop-shadow(0 0 40px rgba(14,165,233,0.8)); }
-}
+@keyframes neon-breathe { 0% { transform: scale(0.96); opacity: 0.6; filter: drop-shadow(0 0 0px rgba(14,165,233,0)); } 100% { transform: scale(1.04); opacity: 1; filter: drop-shadow(0 0 40px rgba(14,165,233,0.8)); } }
 @keyframes fillProgress { 0% { width: 0%; } 50% { width: 65%; } 100% { width: 100%; } }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; color: #0ea5e9; } }
