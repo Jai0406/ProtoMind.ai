@@ -1,0 +1,6 @@
+.env
+myvenv/
+__pycache__/
+*.pyc
+.DS_Store
+ChatGPT Image Aug 20, 2026, 07_09_27 PM.png
