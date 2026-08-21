@@ -116,3 +116,55 @@ CURATED_STANDARDS = {
         ]
     }
 }
+
+TECH_SIGNALS = {
+            "AI_ML": {
+                "ai", "llm", "openai", "anthropic", "gemini", "claude", "deepmind", 
+                "agentic", "neural network", "rag", "fine-tuning", "langchain", 
+                "llama", "mistral", "machine learning", "computer vision", "nlp",
+                "huggingface", "generative ai", "agi"
+            },
+            "DEVOPS_CLOUD": {
+                "docker", "kubernetes", "k8s", "aws", "azure", "gcp", "terraform", 
+                "ci/cd", "devops", "cloud native", "serverless", "microservices", 
+                "linux", "nginx", "infrastructure", "ansible", "jenkins", "argocd"
+            },
+            "DEV_ECOSYSTEM": {
+                "python", "javascript", "typescript", "rust", "golang", "react", 
+                "nextjs", "vue", "flutter", "framework", "open-source", "github", 
+                "api", "sdk", "backend", "frontend", "release", "nodejs", "django"
+            },
+            "DATABASES_DATA": {
+                "postgresql", "mongodb", "redis", "vector database", "pgvector", 
+                "pinecone", "sql", "nosql", "database", "data pipeline", "snowflake",
+                "databricks", "kafka", "elasticsearch"
+            },
+            "SECURITY": {
+                "cybersecurity", "zero-day", "malware", "ransomware", "data breach", 
+                "encryption", "auth", "vulnerability", "cve", "patch", "infosec",
+                "pentesting", "phishing"
+            },
+            "GLOBAL_IT_TECH": {
+                "google", "microsoft", "nvidia", "apple", "meta", "amazon", 
+                "techcrunch", "y combinator", "startup", "acquisition", "ibm",
+                "cisco", "oracle", "sap", "intel", "amd", "qualcomm", "tsmc"
+            },
+            "INDIAN_IT": {
+                "tcs", "infosys", "wipro", "hcl", "tech mahindra", "l&t technology",
+                "mphasis", "mindtree", "tata consultancy", "reliance jio", 
+                "zomato", "swiggy", "flipkart", "paytm", "birlasoft"
+            },
+            "EMERGING_TECH": {
+                "web3", "blockchain", "crypto", "iot", "ar/vr", "quantum computing",
+                "robotics", "metaverse", "edge computing", "5g"
+            }
+        }
+
+SOURCE_SCORES = {
+            "techcrunch": 1.0, 
+            "google news": 0.90, 
+            "economic times": 0.85,
+            "the verge": 0.90,
+            "ars technica": 0.90,
+            "wired": 0.85
+        }
