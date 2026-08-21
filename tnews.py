@@ -37,10 +37,10 @@ class TechNewsEngine:
         """Robust HTML stripping using BeautifulSoup."""
         if not raw_html:
             return ""
-        soup = BeautifulSoup(raw_html, "html.parser")
+        soup = BeautifulSoup(raw_html, "html.parser") #html.parser is a rule book (like lxml) that guides BeautifulSoup, html.parser works without any installation
         return soup.get_text(separator=" ", strip=True)
 
-    async def _fetch_rss_safe(self, client, url, timeout=10):
+    async def _fetch_rss_safe(self, client, url, timeout=10): # client is a virtual browser tab that downloads data from the given url in bg so that others terminal isnt occupied
         try:
             response = await client.get(url, headers=self.headers, timeout=timeout)
             response.raise_for_status()
